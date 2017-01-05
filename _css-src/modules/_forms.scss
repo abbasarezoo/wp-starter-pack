@@ -69,8 +69,6 @@ textarea {
       svg {
           width: 2rem;
           height: 2rem;
-
-          fill: $green;
       }
 
 }
@@ -223,7 +221,6 @@ input[type=submit] {
 	@include font-size($ft-7);
 
 		@include hover-state {
-			background-color: $orange;
 		}
 
 }

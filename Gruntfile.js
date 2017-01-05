@@ -87,6 +87,30 @@ module.exports = function(grunt) {
 
         },
 
+        // =========================
+        // SVG ICONS
+        // =========================
+
+        // Combines singular icon files into a SVG sprite
+
+        svgstore: {
+
+            options: {
+                cleanup: true,
+                prefix : 'icon--',
+                svg: {
+                    xmlns: 'http://www.w3.org/2000/svg'
+                }
+            },
+
+            build: {
+                files: {
+                    'www/wp-content/themes/wp-starter-pack/icons.svg': ['_svg-src/*.svg']
+                }
+            }
+
+        },
+
         // ====================================================================================================
         // WATCH TASKS
         // Tasks are registered underneath this block
@@ -143,6 +167,18 @@ module.exports = function(grunt) {
                     
             },
 
+            svg: {
+
+                files: ['_svg-src/**/*.svg'], // Looks for any svg files added or changed in this directory ...
+                tasks: ['svg'], // ... and runs the 'svg' task ...
+                    options: {
+                        spawn: false,
+                        livereload:35729,
+                        event: ['added', 'changed']
+                    },
+                    
+            },
+
         },
 
         // ====================================================================================================
@@ -166,13 +202,6 @@ module.exports = function(grunt) {
                 }
             },
 
-            codekit: {
-                options: {
-                    title: "Grunt",
-                    message: "HTML compiled"
-                }
-            },
-
             imagemin: {
                 options: {
                     title: "Grunt",
@@ -181,22 +210,6 @@ module.exports = function(grunt) {
             }
 
         },
-
-        // ====================================================================================================
-        // NOTIFICATIONS
-        // Get a notification when the task has ran successfully or when it fails
-        // ====================================================================================================
-
-
-        sasslint: {
-            options: {
-                configFile: '_css-src/.sass-lint.yml',
-                formatter: 'stylish',
-               // outputFile: '_css-src/report.xml'
-            },
-            target: ['_css-src/**/*.scss']
-        },
-
 
 
     });
@@ -211,7 +224,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-notify');
-    grunt.loadNpmTasks('grunt-codekit');
+    grunt.loadNpmTasks('grunt-svgstore');
 
     // ====================================================================================================
     // REGISTER TASKS
@@ -221,7 +234,7 @@ module.exports = function(grunt) {
     grunt.registerTask('js', ['uglify', 'notify:uglify']);
     grunt.registerTask('kit', ['codekit', 'notify:codekit']);
     grunt.registerTask('img', ['imagemin', 'notify:imagemin']);
-    grunt.registerTask('lint', ['sasslint']);
+    grunt.registerTask('svg', ['svgstore']);
 
 
 };
