@@ -207,6 +207,13 @@ module.exports = function(grunt) {
                     title: "Grunt",
                     message: "Images compressed"
                 }
+            },
+
+            svgstore: {
+                options: {
+                    title: "Grunt",
+                    message: "SVG sprite updated"
+                }
             }
 
         },
@@ -234,7 +241,7 @@ module.exports = function(grunt) {
     grunt.registerTask('js', ['uglify', 'notify:uglify']);
     grunt.registerTask('kit', ['codekit', 'notify:codekit']);
     grunt.registerTask('img', ['imagemin', 'notify:imagemin']);
-    grunt.registerTask('svg', ['svgstore']);
+    grunt.registerTask('svg', ['svgstore', 'notify:svgstore']);
 
 
 };
