@@ -1,0 +1,23 @@
+// BRAND COLORS
+
+$black: #000;
+$white: #fff;
+
+$dark-grey: lighten($black, 30%);
+$mid-grey: lighten($black, 60%);
+$light-grey: #E4EAF2;
+$lightest-grey: lighten($light-grey, 5%);
+
+$darken: 5%;
+
+// Colour list for loop
+
+// $colors: (
+// 	yellow: $yellow, 
+// 	teal: $teal, 
+// 	red: $red, 
+// 	blue: $blue, 
+// 	pink: $pink
+// );
+
+// $colors-length: length($colors);

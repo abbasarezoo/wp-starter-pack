@@ -1,0 +1,14 @@
+// =================================================
+// LAYOUT STYLES
+// =================================================
+
+.site-wrapper {
+    margin: 0;
+    padding: 0;
+}
+
+.inner {
+    max-width: $lg;
+    margin: 0 auto;
+    padding: 0 $gutter/2;
+}

@@ -1,0 +1,56 @@
+// =================================================
+// SLICK CONTROL OVERRIDES
+// =================================================
+
+.slick-arrow {
+}
+
+.slick-prev,
+.slick-next {
+	font-size: 0;
+	line-height: 0;
+	padding: 0;
+}
+
+.slick-prev {
+	left: -6rem;
+	transform: rotate(180deg);
+}
+
+.slick-next {
+	right: -6rem;
+}
+
+.slick-dots {
+	margin: 2rem 0 0;
+
+	list-style: none;
+	text-align: center;
+
+		li {
+			display: inline-block;
+			margin: 0 0.5rem;
+
+				&.slick-active {
+					
+					button {
+					}
+
+				}
+
+		}
+
+		button {
+			width: 10px;
+			height: 10px;
+
+			border: none;
+			border-radius: 5px;
+
+			font-size: 0;
+			line-height: 0;
+			padding: 0;
+		}
+
+
+}

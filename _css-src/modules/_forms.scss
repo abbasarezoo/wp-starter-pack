@@ -1,0 +1,231 @@
+// =================================================
+// FORM STYLES
+// =================================================
+
+// Shared field styles for text inputs
+
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=tel],
+textarea {
+}
+
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=tel] {
+    width: 100%;
+    height: 5rem;
+    padding: 0 1rem;
+}
+
+textarea {
+    width: 100%;
+    height: 20rem;
+    padding: 1rem;
+}
+
+// Checkbox replacement styles
+
+.checkbox-outer {
+		display: block;
+		height: 3rem;
+
+    cursor: pointer;
+        
+        input {
+            display: none;
+        }
+
+}
+
+.checkbox {
+		height: 3rem;
+
+			 p {
+			 		display: block;
+			 		height: 3rem;
+			 		margin: 0 1rem 0 0;
+			 		float: left;
+
+			 		line-height: 3rem;
+
+			 		@include font-size($ft-7);
+			 }
+
+			 i {
+			    width: 3rem;
+			    height: 3rem;
+          padding: 0.5rem;
+			    float: left;
+
+			    line-height: 3rem;
+			    text-align: center;
+
+			    border: 1px solid $mid-grey;
+			}
+
+      svg {
+          width: 2rem;
+          height: 2rem;
+
+          fill: $green;
+      }
+
+}
+
+.checkbox i svg {
+    display: none;
+}
+
+label input:checked + .checkbox i svg {
+    display: block;
+}
+
+// Select replacement styles - taken from wtfforms.com
+
+.select {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+
+  border: 1px solid $mid-grey;
+
+  color: $dark-grey;
+
+    @include mq(sm) {
+      width: 75%;
+    }
+
+    @include mq(lg) {
+      width: 50%;
+    }
+    
+}
+
+.select select {
+  display: inline-block;
+  width: 100%;
+  height: 5rem;
+  margin: 0;
+  padding: 0 5rem 0 1rem;
+
+  line-height: 5rem;
+  color: $dark-grey;
+
+  background-color: $white;
+  border: 0;
+  border-radius: 0;
+  cursor: pointer;
+  outline: 0;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+
+    @include font-size($ft-7);
+}
+
+/* Undo the Firefox inner focus ring */
+.select select:focus:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+/* Dropdown arrow */
+.select:after {
+  position: absolute;
+  top: 50%;
+  right: 1.25rem;
+  display: inline-block;
+  content: "";
+  width: 0;
+  height: 0;
+  margin-top: -.15rem;
+  pointer-events: none;
+  border-top: .5rem solid;
+  border-right: .5rem solid transparent;
+  border-bottom: .5rem solid transparent;
+  border-left: .5rem solid transparent;
+}
+
+/* Focus */
+.select select:focus {
+  box-shadow: 0 0 0 .075rem #fff, 0 0 0 .2rem #0074d9;
+}
+
+/* Active/open */
+.select select:active {
+  color: $white;
+  background-color: $dark-grey;
+}
+
+/* Hide the arrow in IE10 and up */
+.select select::-ms-expand {
+  display: none;
+}
+
+/* Media query to target Firefox only */
+@-moz-document url-prefix() {
+  /* Firefox hack to hide the arrow */
+  .select select {
+    text-indent: 0.01px;
+    text-overflow: '';
+    padding-right: 1rem;
+  }
+
+  /* <option> elements inherit styles from <select>, so reset them. */
+  .select option {
+    background-color: white;
+  }
+}
+
+/* IE9 hack to hide the arrow */
+@media screen and (min-width:0\0) {
+  .select select {
+    z-index: 1;
+    padding: .5rem 1.5rem .5rem 1rem;
+  }
+  .select:after {
+    z-index: 5;
+  }
+  .select:before {
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    bottom: 0;
+    z-index: 2;
+    content: "";
+    display: block;
+    width: 1.5rem;
+    background-color: $white;
+  }
+  .select select:hover,
+  .select select:focus,
+  .select select:active {
+    color: #555;
+    background-color: $white;
+  }
+}
+
+// Submit button replacement styles
+
+input[type=submit] {
+	display: block;
+	height: 5rem;
+	padding: 0 2rem;
+
+	line-height: 5rem;
+	color: $white;
+
+	border: none;
+	background-color: $dark-grey;
+
+	@include font-size($ft-7);
+
+		@include hover-state {
+			background-color: $orange;
+		}
+
+}
+
+
